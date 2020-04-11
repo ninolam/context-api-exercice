@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { useTransaction } from '../contexts/TransactionContext';
+import { useTransaction } from '../../contexts/TransactionContext';
 
  const AddTransaction = () => {
   const [text, setText] = useState('');
@@ -13,12 +13,10 @@ import { useTransaction } from '../contexts/TransactionContext';
     const newTransaction = {
         id: Math.floor(Math.random() * 100000000),
         text,
-        amount
+        amount: Number(amount)
       }
 
-      addTransaction(newTransaction);
-
-    // setTransaction(transaction.concat(newTransaction))
+    text !== "" && amount !== "" && addTransaction(newTransaction);
   }
 
   return (
@@ -33,7 +31,7 @@ import { useTransaction } from '../contexts/TransactionContext';
           <label htmlFor="amount">Montant</label>
           <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} />
         </div>
-        <button className="btn">Add transaction</button>
+        <button className="btn">Ajouter une transaction</button>
       </form>
     </>
   )

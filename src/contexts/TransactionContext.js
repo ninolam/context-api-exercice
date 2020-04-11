@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer, useMemo } from 'react';
-import TransactionReducer from '../components/TransactionReducer'
+import TransactionReducer from '../components/Transaction/TransactionReducer'
 
 const TransactionContext = createContext()
 
@@ -17,13 +17,13 @@ const useTransaction = () => {
     if (!context) {
         throw new Error(`useTransaction must be used within a TransactionProvider`)
     }
-    // return context
+
     const [state, dispatch] = context
     const addTransaction = (transaction) => dispatch({ type: 'ADD_TRANSACTION', payload: transaction })
     // const deleteTransaction = (id) => dispatch({ type: 'ADD_TRANSACTION', payload: id })
 
     return {
-        state,
+        transactions: state.transactions,
         dispatch,
         addTransaction,
     }
