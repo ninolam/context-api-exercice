@@ -90,17 +90,21 @@ input {
   width: 100%;
 }
 
-.btn:focus,
-.delete-btn:focus {
-  outline: 0;
+.delete-btn {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateX(40px);
+  padding: 10px;
+  background: #ff000030;
+  color: red;
 }
 
 .list {
   list-style-type: none;
-  max-height: 145px;
   padding: 0;
   margin-bottom: 40px;
-  overflow-y: scroll;
 }
 
 .list li {

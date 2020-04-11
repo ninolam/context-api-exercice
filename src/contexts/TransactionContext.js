@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer, useMemo } from 'react';
-import TransactionReducer from '../components/Transaction/TransactionReducer'
+import TransactionReducer from './TransactionReducer'
 
 const TransactionContext = createContext()
 
@@ -20,12 +20,13 @@ const useTransaction = () => {
 
     const [state, dispatch] = context
     const addTransaction = (transaction) => dispatch({ type: 'ADD_TRANSACTION', payload: transaction })
-    // const deleteTransaction = (id) => dispatch({ type: 'ADD_TRANSACTION', payload: id })
+    const deleteTransaction = (id) => dispatch({ type: 'DELETE_TRANSACTION', payload: id })
 
     return {
         transactions: state.transactions,
         dispatch,
         addTransaction,
+        deleteTransaction
     }
 }
 
